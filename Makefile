@@ -247,7 +247,7 @@ tests: ## Run tests.
 .PHONY: tests
 
 tests-coverage: ## Run tests with coverage.
-	$(PHPUNIT) --coverage-html var/coverage
+	XDEBUG_MODE=coverage $(PHPUNIT) --coverage-html var/coverage
 .PHONY: tests-coverage
 #---------------------------------------------#
 
