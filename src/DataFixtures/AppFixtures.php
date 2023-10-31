@@ -22,6 +22,7 @@ class AppFixtures extends Fixture
             $article->setName($faker->name);
             $article->setDescription($faker->text);
             $article->setDate($faker->dateTime());
+            $article->setImage($faker->text);
             $manager->persist($article);
             $articles[] = $article;
         }
@@ -36,7 +37,6 @@ class AppFixtures extends Fixture
             $infos[] = $info;
         }
         
-
         $manager->flush();
     }
 }
