@@ -34,6 +34,9 @@ class Article
     #[Vich\UploadableField(mapping: 'article', fileNameProperty: 'image')]
     private ?File $imageFile = null;
 
+    #[ORM\Column]
+    private ?bool $isOnline = null;
+
     public function __construct()
     {
         
@@ -100,5 +103,17 @@ class Article
     public function getImageFile(): ?File
     {
         return $this->imageFile;
+    }
+
+    public function isIsOnline(): ?bool
+    {
+        return $this->isOnline;
+    }
+
+    public function setIsOnline(bool $isOnline): static
+    {
+        $this->isOnline = $isOnline;
+
+        return $this;
     }
 }
