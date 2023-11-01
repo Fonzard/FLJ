@@ -24,6 +24,7 @@ class AppFixtures extends Fixture
             $article->setDescription($faker->text);
             $article->setDate($faker->dateTime());
             $article->setImage($faker->text);
+            $article->setIsOnline($faker->boolean);
             $manager->persist($article);
             $articles[] = $article;
         }
@@ -34,6 +35,7 @@ class AppFixtures extends Fixture
             $info = new Info();
             $info->setTitle($value);
             $info->setDetail($faker->text);
+            $info->setIsOnline($faker->boolean);
             $manager->persist($info);
             $infos[] = $info;
         }
@@ -44,6 +46,7 @@ class AppFixtures extends Fixture
             $homepage = new Homepage();
             $homepage->setTitle($value);
             $homepage->setImage($faker->text);
+            $homepage->setIsOnline($faker->boolean);
             $manager->persist($homepage);
             $homepages[] = $homepage;
         }

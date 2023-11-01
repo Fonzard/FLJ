@@ -19,6 +19,9 @@ class Info
     #[ORM\Column(length: 255)]
     private ?string $detail = null;
 
+    #[ORM\Column]
+    private ?bool $isOnline = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +47,18 @@ class Info
     public function setDetail(string $detail): static
     {
         $this->detail = $detail;
+
+        return $this;
+    }
+
+    public function isIsOnline(): ?bool
+    {
+        return $this->isOnline;
+    }
+
+    public function setIsOnline(bool $isOnline): static
+    {
+        $this->isOnline = $isOnline;
 
         return $this;
     }

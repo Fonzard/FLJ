@@ -24,6 +24,9 @@ class Homepage
     #[Vich\UploadableField(mapping: 'homepage', fileNameProperty: 'image')]
     private ?File $imageFile = null;
 
+    #[ORM\Column]
+    private ?bool $isOnline = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -61,5 +64,17 @@ class Homepage
     public function getImageFile(): ?File
     {
         return $this->imageFile;
+    }
+
+    public function isIsOnline(): ?bool
+    {
+        return $this->isOnline;
+    }
+
+    public function setIsOnline(bool $isOnline): static
+    {
+        $this->isOnline = $isOnline;
+
+        return $this;
     }
 }

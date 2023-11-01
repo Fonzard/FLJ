@@ -3,10 +3,12 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Homepage;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 
 class HomepageCrudController extends AbstractCrudController
 {
@@ -23,6 +25,9 @@ class HomepageCrudController extends AbstractCrudController
             TextField::new('title'),
             TextField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating(),
             ImageField::new('image')->setBasePath('/uploads/image/homepage')->onlyOnIndex(),
+            BooleanField::new('isOnline', 'Status')
+            ->onlyOnIndex() 
+            ->renderAsSwitch() 
         ];
     }
 
