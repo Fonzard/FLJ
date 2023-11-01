@@ -1,11 +1,12 @@
 <?php
 
 namespace App\DataFixtures;
-use App\Entity\Article;
 use App\Entity\Info;
-use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Persistence\ObjectManager;
+use App\Entity\Article;
+use App\Entity\Homepage;
 use Faker\Factory as Faker;
+use Doctrine\Persistence\ObjectManager;
+use Doctrine\Bundle\FixturesBundle\Fixture;
 
 class AppFixtures extends Fixture
 {
@@ -27,7 +28,7 @@ class AppFixtures extends Fixture
             $articles[] = $article;
         }
         
-        //Create 5 infos
+        //Create 4 infos
         $infos = [];
         foreach(['Contact', 'Lieu', 'Horaire', 'Avis'] as $value){
             $info = new Info();
@@ -35,6 +36,16 @@ class AppFixtures extends Fixture
             $info->setDetail($faker->text);
             $manager->persist($info);
             $infos[] = $info;
+        }
+
+        // Create Homepage
+        $homepages = [];
+        foreach(['FLJ'] as $value){
+            $homepage = new Homepage();
+            $homepage->setTitle($value);
+            $homepage->setImage($faker->text);
+            $manager->persist($homepage);
+            $homepages[] = $homepage;
         }
         
         $manager->flush();

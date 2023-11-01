@@ -15,14 +15,15 @@ class HomepageCrudController extends AbstractCrudController
         return Homepage::class;
     }
 
-    /*
+    
     public function configureFields(string $pageName): iterable
     {
         return [
             IdField::new('id'),
             TextField::new('title'),
-            TextEditorField::new('description'),
+            TextField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating(),
+            ImageField::new('image')->setBasePath('/uploads/image/homepage')->onlyOnIndex(),
         ];
     }
-    */
+
 }

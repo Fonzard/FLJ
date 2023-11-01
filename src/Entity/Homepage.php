@@ -4,8 +4,10 @@ namespace App\Entity;
 
 use App\Repository\HomepageRepository;
 use Doctrine\ORM\Mapping as ORM;
-
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 #[ORM\Entity(repositoryClass: HomepageRepository::class)]
+#[Vich\Uploadable]
 class Homepage
 {
     #[ORM\Id]
@@ -16,8 +18,11 @@ class Homepage
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $url = null;
+    #[ORM\Column(type: 'string', length: 255)]
+    private ?string $image = null;
+
+    #[Vich\UploadableField(mapping: 'homepage', fileNameProperty: 'image')]
+    private ?File $imageFile = null;
 
     public function getId(): ?int
     {
@@ -36,15 +41,25 @@ class Homepage
         return $this;
     }
 
-    public function getUrl(): ?string
+    public function getImage(): ?string
     {
-        return $this->url;
+        return $this->image;
     }
 
-    public function setUrl(string $url): static
+    public function setImage(string $image): static
     {
-        $this->url = $url;
+        $this->image = $image;
 
         return $this;
+    }
+
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
     }
 }
