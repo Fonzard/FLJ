@@ -1,27 +1,25 @@
 easy_admin:
-    design:
-        brand_color: 'blue'
+  design:
+    brand_color: 'blue'
 
-    entities:
-        Article:
-            class: App\Entity\Article
-            label: 'Articles'
-            list:
-                actions:
-                    - { name: 'en_ligne', type: 'custom', label: 'Mettre en ligne', icon: 'check'}
+  entities:
+    Article:
+      class: App\Entity\Article
+      label: 'Articles'
+      list:
+        actions:
+          - { name: 'en_ligne', type: 'custom', label: 'Mettre en ligne', icon: 'check'}
 
+    Homepage:
+      class: App\Entity\Homepage
+      label: 'Accueil'
+      list:
+        actions:
+          - { name: 'en_ligne', type: 'custom', label: 'Mettre en ligne', icon: 'check'}
 
-        Homepage:
-            class: App\Entity\Homepage
-            label: 'Pages d'accueil'
-            list:
-                actions:
-                    - { name: 'en_ligne', type: 'custom', label: 'Mettre en ligne', icon: 'check'}
-
-
-        Info:
-            class: App\Entity\Info
-            label: 'Informations'
-            list:
-                actions:
-                    - { name: 'en_ligne', type: 'custom', label: 'Mettre en ligne', icon: 'check'}
+    Info:
+      class: App\Entity\Info
+      label: 'Informations'
+      list:
+        actions:
+          - { name: 'en_ligne', type: 'custom', label: 'Mettre en ligne', icon: 'check'}
