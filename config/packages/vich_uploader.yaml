@@ -2,15 +2,27 @@ vich_uploader:
     db_driver: orm
 
     mappings:
-        article:
-            uri_prefix: '%app.path.article_images%'
-            upload_destination: '%kernel.project_dir%/public%app.path.article_images%'
+        project:
+            uri_prefix: '%app.path.project_images%'
+            upload_destination: '%kernel.project_dir%/public%app.path.project_images%'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
             delete_on_update: false
             delete_on_remove: false
         homepage:
             uri_prefix: '%app.path.homepage_images%'
             upload_destination: '%kernel.project_dir%/public%app.path.homepage_images%'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+            delete_on_update: false
+            delete_on_remove: false
+        partner:
+            uri_prefix: '%app.path.partner_images%'
+            upload_destination: '%kernel.project_dir%/public%app.path.partner_images%'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+            delete_on_update: false
+            delete_on_remove: false
+        presentation:
+            uri_prefix: '%app.path.presentation_images%'
+            upload_destination: '%kernel.project_dir%/public%app.path.presentation_images%'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
             delete_on_update: false
             delete_on_remove: false

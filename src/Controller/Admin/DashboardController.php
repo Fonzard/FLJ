@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Controller\Admin;
-use App\Entity\Info;
 use App\Entity\User;
-use App\Entity\Article;
 use App\Entity\Contact;
+use App\Entity\Formation;
 use App\Entity\Homepage;
+use App\Entity\Presentation;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -21,7 +21,7 @@ class DashboardController extends AbstractDashboardController
         // Option 1. You can make your dashboard redirect to some common page of your backend
         //
         $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
-        return $this->redirect($adminUrlGenerator->setController(ArticleCrudController::class)->generateUrl());
+        return $this->redirect($adminUrlGenerator->setController(HomepageCrudController::class)->generateUrl());
 
         // Option 2. You can make your dashboard redirect to different pages depending on the user
         //
@@ -43,10 +43,10 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToCrud('Article', 'fas fa-newspaper', Article::class);
+        yield MenuItem::linkToCrud('Formation', 'fas fa-school', Formation::class);
         yield MenuItem::linkToCrud('Contact', 'fas fa-message', Contact::class);
         yield MenuItem::linkToCrud('Homepage', 'fas fa-house', Homepage::class);
-        yield MenuItem::linkToCrud('Info', 'fas fa-info', Info::class);
+        yield MenuItem::linkToCrud('Presentation', 'fas fa-circle-info', Presentation::class);
         yield MenuItem::linkToCrud('User', 'fas fa-user', User::class);
     }
 }

@@ -3,9 +3,9 @@ easy_admin:
     brand_color: 'blue'
 
   entities:
-    Article:
-      class: App\Entity\Article
-      label: 'Articles'
+    Formation:
+      class: App\Entity\Formation
+      label: 'Formation'
       list:
         actions:
           - { name: 'en_ligne', type: 'custom', label: 'Mettre en ligne', icon: 'check'}
@@ -17,8 +17,8 @@ easy_admin:
         actions:
           - { name: 'en_ligne', type: 'custom', label: 'Mettre en ligne', icon: 'check'}
 
-    Info:
-      class: App\Entity\Info
+    Presentation:
+      class: App\Entity\Presentation
       label: 'Informations'
       list:
         actions:
