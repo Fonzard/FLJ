@@ -5,6 +5,7 @@ use App\Entity\Info;
 use App\Entity\Article;
 use App\Entity\Homepage;
 use Faker\Factory as Faker;
+use App\Entity\CustomMadeFormation;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 
@@ -30,14 +31,13 @@ class AppFixtures extends Fixture
         }
         
         //Create 4 infos
-        $infos = [];
-        foreach(['Contact', 'Lieu', 'Horaire', 'Avis'] as $value){
-            $info = new Info();
-            $info->setTitle($value);
-            $info->setDetail($faker->text);
-            $info->setIsOnline($faker->boolean);
-            $manager->persist($info);
-            $infos[] = $info;
+        $customMadeFormations = [];
+        for ($i = 0; $i < 5; $i++){
+            $customMadeFormation = new CustomMadeFormation();
+            $customMadeFormation->setTitle($faker->title);
+            $customMadeFormation->setContent($faker->text);
+            $manager->persist($customMadeFormation);
+            $customMadeFormations[] = $customMadeFormation;
         }
 
         // Create Homepage
@@ -46,7 +46,6 @@ class AppFixtures extends Fixture
             $homepage = new Homepage();
             $homepage->setTitle($value);
             $homepage->setImage($faker->text);
-            $homepage->setIsOnline($faker->boolean);
             $manager->persist($homepage);
             $homepages[] = $homepage;
         }

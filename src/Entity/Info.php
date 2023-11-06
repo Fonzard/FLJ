@@ -14,51 +14,81 @@ class Info
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $title = null;
+    private ?string $date = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $detail = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $duration = null;
 
-    #[ORM\Column]
-    private ?bool $isOnline = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $place = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $cost = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $educational_cost = null;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getTitle(): ?string
+    public function getDate(): ?string
     {
-        return $this->title;
+        return $this->date;
     }
 
-    public function setTitle(string $title): static
+    public function setDate(string $date): static
     {
-        $this->title = $title;
+        $this->date = $date;
 
         return $this;
     }
 
-    public function getDetail(): ?string
+    public function getDuration(): ?string
     {
-        return $this->detail;
+        return $this->duration;
     }
 
-    public function setDetail(string $detail): static
+    public function setDuration(?string $duration): static
     {
-        $this->detail = $detail;
+        $this->duration = $duration;
 
         return $this;
     }
 
-    public function isIsOnline(): ?bool
+    public function getPlace(): ?string
     {
-        return $this->isOnline;
+        return $this->place;
     }
 
-    public function setIsOnline(bool $isOnline): static
+    public function setPlace(?string $place): static
     {
-        $this->isOnline = $isOnline;
+        $this->place = $place;
+
+        return $this;
+    }
+
+    public function getCost(): ?string
+    {
+        return $this->cost;
+    }
+
+    public function setCost(?string $cost): static
+    {
+        $this->cost = $cost;
+
+        return $this;
+    }
+
+    public function getEducationalCost(): ?string
+    {
+        return $this->educational_cost;
+    }
+
+    public function setEducationalCost(?string $educational_cost): static
+    {
+        $this->educational_cost = $educational_cost;
 
         return $this;
     }

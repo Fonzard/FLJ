@@ -2,12 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\HomepageRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use App\Repository\HomepageRepository;
 use Symfony\Component\HttpFoundation\File\File;
-#[ORM\Entity(repositoryClass: HomepageRepository::class)]
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 #[Vich\Uploadable]
+#[ORM\Entity(repositoryClass: HomepageRepository::class)]
 class Homepage
 {
     #[ORM\Id]
@@ -23,9 +23,6 @@ class Homepage
 
     #[Vich\UploadableField(mapping: 'homepage', fileNameProperty: 'image')]
     private ?File $imageFile = null;
-
-    #[ORM\Column]
-    private ?bool $isOnline = null;
 
     public function getId(): ?int
     {
@@ -64,17 +61,5 @@ class Homepage
     public function getImageFile(): ?File
     {
         return $this->imageFile;
-    }
-
-    public function isIsOnline(): ?bool
-    {
-        return $this->isOnline;
-    }
-
-    public function setIsOnline(bool $isOnline): static
-    {
-        $this->isOnline = $isOnline;
-
-        return $this;
     }
 }
