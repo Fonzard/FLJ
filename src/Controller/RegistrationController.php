@@ -52,11 +52,11 @@ class RegistrationController extends AbstractController
                  [
                     'user' => $user,
                     'token' => $tokenRegistration,
-                    'lifeTimeToken' => $user->getTokenRegistrationLifeTime()->format('d-m-Y-H-i-s')
+                    'lifeTimeToken' => $user->getTokenRegistrationLifeTime()->format('d/m/Y')
                  ]
             );
             
-            $this->addFlash('sucess', 'Votre compte à bien été créé, veuillez vérifier vos emails pour l\'activer.');
+            $this->addFlash('success', 'Votre compte à bien été créé, veuillez vérifier vos emails pour l\'activer.');
 
             return $this->redirectToRoute('app_login');
         }
