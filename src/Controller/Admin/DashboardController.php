@@ -3,11 +3,15 @@
 namespace App\Controller\Admin;
 use App\Entity\User;
 use App\Entity\Contact;
-use App\Entity\Formation;
 use App\Entity\Homepage;
+use App\Entity\Formation;
 use App\Entity\Presentation;
+use App\Entity\OwnerPresentation;
+use App\Entity\CustomMadeFormation;
+use App\Entity\PartnershipFormation;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
@@ -43,9 +47,15 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
+        yield MenuItem::subMenu('Homepage', 'fas fa-bars')->setSubItems([
+            MenuItem::linkToCrud('Gérer la page d\'accueil', 'fas fa-eye', Homepage::class)->setAction(Crud::PAGE_INDEX),
+            MenuItem::linkToCrud('Gérer son introduction', 'fas fa-eye', OwnerPresentation::class)->setAction(Crud::PAGE_INDEX),
+            MenuItem::linkToCrud('Gérer les formations partenaires', 'fas fa-eye', PartnershipFormation::class)->setAction(Crud::PAGE_INDEX),
+            MenuItem::linkToCrud('Gérer les formations sur mesure', 'fas fa-eye', CustomMadeFormation::class)->setAction(Crud::PAGE_INDEX),
+
+        ]);
         yield MenuItem::linkToCrud('Formation', 'fas fa-school', Formation::class);
         yield MenuItem::linkToCrud('Contact', 'fas fa-message', Contact::class);
-        yield MenuItem::linkToCrud('Homepage', 'fas fa-house', Homepage::class);
         yield MenuItem::linkToCrud('Presentation', 'fas fa-circle-info', Presentation::class);
         yield MenuItem::linkToCrud('User', 'fas fa-user', User::class);
     }

@@ -1,14 +1,14 @@
 <?php
+
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\HomepageRepository;
+use App\Repository\OwnerPresentationRepository;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
-#[Vich\Uploadable]
-#[ORM\Entity(repositoryClass: HomepageRepository::class)]
-class Homepage
+#[ORM\Entity(repositoryClass: OwnerPresentationRepository::class)]
+class OwnerPresentation
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -16,9 +16,12 @@ class Homepage
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $title = null;
+    private ?string $shortPresentation = null;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(length: 255)]
+    private ?string $role = null;
+
+    #[ORM\Column(length: 255)]
     private ?string $image = null;
 
     #[Vich\UploadableField(mapping: 'homepage', fileNameProperty: 'image')]
@@ -27,19 +30,32 @@ class Homepage
     #[ORM\Column]
     private ?bool $isActive = null;
 
+    
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getTitle(): ?string
+    public function getShortPresentation(): ?string
     {
-        return $this->title;
+        return $this->shortPresentation;
     }
 
-    public function setTitle(string $title): static
+    public function setShortPresentation(string $shortPresentation): static
     {
-        $this->title = $title;
+        $this->shortPresentation = $shortPresentation;
+
+        return $this;
+    }
+
+    public function getRole(): ?string
+    {
+        return $this->role;
+    }
+
+    public function setRole(string $role): static
+    {
+        $this->role = $role;
 
         return $this;
     }
@@ -77,6 +93,4 @@ class Homepage
 
         return $this;
     }
-
 }
-?>

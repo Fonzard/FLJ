@@ -29,12 +29,6 @@ class Presentation
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $short_presentation = null;
-
-    #[ORM\Column(length: 255)]
-    private ?string $role = null;
-
     #[ORM\Column(type: 'string', length: 255)]
     private ?string $image = null;
 
@@ -86,30 +80,6 @@ class Presentation
     public function setDescription(string $description): static
     {
         $this->description = $description;
-
-        return $this;
-    }
-
-    public function getShortPresentation(): ?string
-    {
-        return $this->short_presentation;
-    }
-
-    public function setShortPresentation(string $short_presentation): static
-    {
-        $this->short_presentation = $short_presentation;
-
-        return $this;
-    }
-
-    public function getRole(): ?string
-    {
-        return $this->role;
-    }
-
-    public function setRole(string $role): static
-    {
-        $this->role = $role;
 
         return $this;
     }
