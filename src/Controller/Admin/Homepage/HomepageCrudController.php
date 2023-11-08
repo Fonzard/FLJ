@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Admin;
+namespace App\Controller\Admin\Homepage;
 
 use App\Entity\Homepage;
 use Vich\UploaderBundle\Form\Type\VichImageType;

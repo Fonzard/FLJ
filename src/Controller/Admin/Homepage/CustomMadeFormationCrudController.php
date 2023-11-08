@@ -1,19 +1,19 @@
 <?php
 
-namespace App\Controller\Admin;
+namespace App\Controller\Admin\Homepage;
 
-use App\Entity\PartnershipFormation;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use App\Entity\CustomMadeFormation;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 
-class PartnershipFormationCrudController extends AbstractCrudController
+class CustomMadeFormationCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return PartnershipFormation::class;
+        return CustomMadeFormation::class;
     }
 
     

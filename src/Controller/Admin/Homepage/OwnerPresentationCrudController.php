@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Controller\Admin;
+namespace App\Controller\Admin\Homepage;
 
 use App\Entity\OwnerPresentation;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
