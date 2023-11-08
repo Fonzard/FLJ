@@ -22,7 +22,6 @@ class FormationCrudController extends AbstractCrudController
             TextField::new('title')
                 ->setlabel('Titre'),
             TextEditorField::new('description'),
-
         ];
     }
 
