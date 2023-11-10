@@ -3,7 +3,20 @@
 {% block title %}Hello HomepageController!{% endblock %}
 
 {% block body %}
-  <h1 class="text-3xl font-bold underline">
-    Hello world!
-  </h1>
+  {% include '_partials/_header.html.twig' %} 
+<main>
+<section class="bg-white pb-12">
+  <div class="container max-w-full mx-auto">
+    <div class="flex justify-center items-center">
+      <img src="/images/banner.jpg" alt="Banner" class="w-full h-60 object-cover" data-aos="fade-in">
+      <h2 class="text-center text-xl font-bold mt-4" style="position: fixed;">FLJ Conseil Formation Recherche</h2>
+    </div>
+  </div>
+</section>
+  {% include 'homepage/_presentation.html.twig' %} 
+  {% include 'homepage/_custom-formation.html.twig' %}
+  {% include 'homepage/_contact-link.html.twig' %}
+  {% include 'homepage/_owner-formation.html.twig' %}
+</main>
+  {% include 'homepage/_footer.html.twig'%}
 {% endblock %}
