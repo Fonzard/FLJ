@@ -3,35 +3,58 @@
 namespace App\Entity;
 
 use App\Repository\ContactRepository;
-use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: ContactRepository::class)]
 class Contact
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
-    #[ORM\Column]
-    private ?int $id = null;
+    #[ORM\Column(type: 'integer')]
+    private ?int $id;
 
-    #[ORM\Column(length: 255)]
-    private ?string $email = null;
+    #[ORM\Column(type: 'string', length: 50, nullable: true)]
+    #[Assert\Length(min: 2, max: 50)]
+    private ?string $fullName = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $first_name = null;
+    #[ORM\Column(type: 'string', length: 180)]
+    #[Assert\Email()]
+    #[Assert\Length(min: 2, max: 180)]
+    private string $email;
 
-    #[ORM\Column(length: 255)]
-    private ?string $last_name = null;
+    #[ORM\Column(type: 'string', length: 100, nullable: true)]
+    #[Assert\Length(min: 2, max: 100)]
+    private ?string $subject = null;
 
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $message = null;
+    #[ORM\Column(type: 'text')]
+    #[Assert\NotBlank()]
+    private string $message;
 
-    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
-    private ?\DateTimeInterface $date = null;
+    #[ORM\Column(type: 'datetime_immutable')]
+    #[Assert\NotNull()]
+    private ?\DateTimeImmutable $createdAt;
+
+    public function __construct()
+    {
+        $this->createdAt = new \DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getFullName(): ?string
+    {
+        return $this->fullName;
+    }
+
+    public function setFullName(?string $fullName): self
+    {
+        $this->fullName = $fullName;
+
+        return $this;
     }
 
     public function getEmail(): ?string
@@ -39,33 +62,21 @@ class Contact
         return $this->email;
     }
 
-    public function setEmail(string $email): static
+    public function setEmail(string $email): self
     {
         $this->email = $email;
 
         return $this;
     }
 
-    public function getFirstName(): ?string
+    public function getSubject(): ?string
     {
-        return $this->first_name;
+        return $this->subject;
     }
 
-    public function setFirstName(string $first_name): static
+    public function setSubject(?string $subject): self
     {
-        $this->first_name = $first_name;
-
-        return $this;
-    }
-
-    public function getLastName(): ?string
-    {
-        return $this->last_name;
-    }
-
-    public function setLastName(string $last_name): static
-    {
-        $this->last_name = $last_name;
+        $this->subject = $subject;
 
         return $this;
     }
@@ -75,21 +86,21 @@ class Contact
         return $this->message;
     }
 
-    public function setMessage(string $message): static
+    public function setMessage(string $message): self
     {
         $this->message = $message;
 
         return $this;
     }
 
-    public function getDate(): ?\DateTimeInterface
+    public function getCreatedAt(): ?\DateTimeImmutable
     {
-        return $this->date;
+        return $this->createdAt;
     }
 
-    public function setDate(\DateTimeInterface $date): static
+    public function setCreatedAt(\DateTimeImmutable $createdAt): self
     {
-        $this->date = $date;
+        $this->createdAt = $createdAt;
 
         return $this;
     }

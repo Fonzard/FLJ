@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FLJ - Contact
+{% endblock %}
+
+{% block body %}
+  {% include 'contact/_header.html.twig' %} 
+    <main class="m-8">
+        <div class="max-w-md mx-auto bg-[#D7C8C8] p-8 shadow-md rounded-lg"> 
+            {% include '_partials/_flash.html.twig' %}
+            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900">Contact</h2>
+
+            {{ form(form) }}
+        </div>
+    </main>
+{% endblock %}
