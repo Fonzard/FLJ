@@ -13,10 +13,12 @@
         {% block javascripts %}
             {{ importmap() }}
             {{ encore_entry_script_tags('app') }}
+            <script src="{{ asset('js/mobileNav.js') }}"></script>
         {% endblock %}
     </head>
     <body>
         {% include '_partials/_flash.html.twig' %}
         {% block body %}{% endblock %}
+        {% include '_partials/_footer.html.twig' %}
     </body>
 </html>
