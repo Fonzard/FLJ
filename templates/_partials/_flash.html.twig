@@ -1,8 +1,14 @@
- {% for label, messages in app.flashes %}
-    {% for message in messages %}
-    <div class="alert alert-{{ label }}">
-    {{message|raw }}
-    </div>
-    {% endfor %}
+{% for message in app.flashes('success') %}
+	<div class="bg-green-500 text-white p-4 mb-4 rounded-md">
+		{{ message }}
+	</div>
 {% endfor %}
+
+{% if app.flashes('danger') is not empty %}
+    {% for message in app.flashes('danger') %}
+        <div class="bg-red-500 text-white p-4 mb-4 rounded-md">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
 

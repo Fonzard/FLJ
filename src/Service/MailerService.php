@@ -13,14 +13,14 @@ class MailerService {
     /**
      * @throw TransportExceptionInterface
      */
-    public function send (
+    public function sendMailRegistration (
         string $to, 
         string $subject,
         string $templateTwig,
         array $context): void
     {
         $email = (new TemplatedEmail())
-            ->from(new Address('noreply@monsitededev.fr', 'FLJ'))
+            ->from(new Address('noreply@flj.fr', 'FLJ'))
             ->to($to)
             ->subject($subject)
             ->htmlTemplate("mails/$templateTwig")
@@ -32,4 +32,21 @@ class MailerService {
             throw $transportException;
         }
     }
+    public function sendEmail(
+        string $from,
+        string $subject,
+        string $htmlTemplate,
+        array $context,
+        string $to = 'admin@flj.com'
+    ): void {
+        $email = (new TemplatedEmail())
+            ->from($from)
+            ->to($to)
+            ->subject($subject)
+            ->htmlTemplate($htmlTemplate)
+            ->context($context);
+
+        $this->mailer->send($email);
+    }
+
 }

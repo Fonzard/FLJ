@@ -45,7 +45,7 @@ class RegistrationController extends AbstractController
             $entityManager->flush();
 
             // MAILER SEND
-            $mailerService->send(
+            $mailerService->sendMailRegistration(
                 $user->getEmail(),
                 'Confirmation du compte utilisateur',
                 'registration_confirmation.html.twig',
