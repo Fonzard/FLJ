@@ -26,7 +26,7 @@ class ContactType extends AbstractType
                 ],
                 'label' => 'Nom / Prénom',
                 'label_attr' => [
-                    'class' => 'block text-sm font-medium'
+                    'class' => 'block text-sm font-bold'
                 ],
             ])
             ->add('email', EmailType::class, [
@@ -36,7 +36,7 @@ class ContactType extends AbstractType
                 ],
                 'label' => 'Adresse email',
                 'label_attr' => [
-                    'class' => 'block text-sm font-medium'
+                    'class' => 'block text-sm font-bold'
                 ],
                 'constraints' => [
                     new Assert\NotBlank(),
@@ -54,7 +54,7 @@ class ContactType extends AbstractType
                 ],
                 'label' => 'Sujet',
                 'label_attr' => [
-                    'class' => 'block text-sm font-medium'
+                    'class' => 'block text-sm font-bold'
                 ],
                 'constraints' => [
                     new Assert\Length(['min' => 2, 'max' => 100])
@@ -65,7 +65,7 @@ class ContactType extends AbstractType
                 'attr' => ['rows' => 6, 'class' => 'mb-4 block p-2 w-full text-sm rounded-lg', 'placeholder' => 'Écrit nous un message...'],
                 'label' => 'Message',
                 'label_attr' => [
-                    'class' => 'block text-sm font-medium'
+                    'class' => 'block text-sm font-bold'
                 ],
                 'constraints' => [
                     new Assert\NotBlank()
