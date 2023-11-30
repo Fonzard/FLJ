@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Présentation{% endblock %}
+
+{% block body %}
+    {% include 'presentation/_header.html.twig' %} 
+    <main>
+          {% include 'presentation/_presentation.html.twig' %}
+          {% include 'presentation/_project.html.twig' %}
+    </main>
+{% endblock %}
