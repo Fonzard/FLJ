@@ -25,7 +25,6 @@ class HomepageCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-
             IdField::new('id')
             ->hideOnForm(),
             TextField::new('title'),
@@ -33,7 +32,6 @@ class HomepageCrudController extends AbstractCrudController
             ImageField::new('image')->setBasePath('/uploads/image/homepage')->onlyOnIndex(),
             BooleanField::new('isActive')
             ->setLabel('Activé'),
-
         ];
     }
 

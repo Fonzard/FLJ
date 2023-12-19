@@ -1,9 +1,14 @@
 <section class="bg-[#A5A3BF] flex flex-wrap justify-content-between align-items-center border-b-2 border-solid border-white md:pt-8">
-    <h2 class="ml-8 mt-8 font-extrabold text-2xl">Consultante Formatrice</h2>
+    {% if ownerPresentation %}
+    <h2 class="ml-8 mt-8 font-extrabold text-2xl">{{ ownerPresentation.role }}</h2>
     <div class="flex mx-16 mt-10 flex-col md:flex-row pb-10">
-        <p class="pb-10 md:pb-0 lg:mr-4 font-medium">Françoise Le Jallé, responsable scientifique du DU « autisme et médiations corporelles », du DEUST « Sport Adapté » et de stages courts dans le domaine de la déficience intellectuelle, de la souffrance psychique et de l’autisme Françoise Le Jallé, responsable scientifique du DU « autisme et médiations corporelles », du DEUST « Sport Adapté » et de stages courts dans le domaine de la déficience intellectuelle, de la souffrance psychique et de l’autisme</p>
-        <img src="http://pksub.com/assets/img-temp/300x300/img1.jpg" class="mr-3" alt="300x300" />
+    {{ ownerPresentation.shortPresentation | raw}}
+    <img src="{{ asset('uploads/image/homepage/' ~ ownerPresentation.image) }}" class="mr-3 max-w-md md:mr-6 max-md:mt-8" alt="Owner Presentation Image">
     </div>
+    {% else %}
+        <p>Aucune présentation disponible.</p>
+    {% endif %}
+
     <a href="/presentation"  class="bg-[#D7C8C8] hover:bg-[#e4cece] rounded-lg p-2 font-bold  transition-transform duration-300 ease-in-out transform hover:scale-95 relative overflow-hidden shadow-md mx-auto my-auto cursor-pointer mb-10">En savoir plus</a>
 </section>
 

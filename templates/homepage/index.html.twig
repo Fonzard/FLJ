@@ -3,18 +3,21 @@
 {% block title %}Page d'accueil{% endblock %}
 
 {% block body %}
-  {% include 'homepage/_header.html.twig' %} 
+  {% include 'homepage/_header.html.twig' %}
 <main>
   {% include '_partials/_flash.html.twig' %}
-  <section class="bg-white pb-12 relative">
+  <section class="bg-white border-b-2 border-solid border-white relative">
     <div class="container max-w-full mx-auto">
       <div class="flex justify-center items-center">
-        <img src="/images/banner.jpg" alt="Banner" class="w-full h-60 object-cover" data-aos="fade-in">
-        <h2 class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-xl font-bold mt-4">FLJ Conseil Formation Recherche</h2>
+
+        {% if homepage %}
+          <img src="{{ asset('uploads/image/homepage/' ~ homepage.image) }}" alt="Banner" class="w-full h-60 object-cover" data-aos="fade-in">
+          <h2 class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-xl font-bold mt-4 line-clamp-3">{{ homepage.title }}</h2>
+        {% endif %}
       </div>
     </div>
   </section>
-  {% include 'homepage/_presentation.html.twig' %} 
+  {% include 'homepage/_presentation.html.twig' %}
   {% include 'homepage/_custom-formation.html.twig' %}
   {% include 'homepage/_contact-link.html.twig' %}
   {% include 'homepage/_owner-formation.html.twig' %}
