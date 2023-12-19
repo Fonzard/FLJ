@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Contact;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -21,8 +22,8 @@ class ContactType extends AbstractType
             ->add('fullName', TextType::class, [
                 'attr' => [
                     'class' => 'mb-4 block p-2 w-full text-sm rounded',
-                    'minlenght' => '2',
-                    'maxlenght' => '50',
+                    'minlength' => '2', // Correction de la syntaxe
+                    'maxlength' => '50', // Correction de la syntaxe
                 ],
                 'label' => 'Nom / Prénom',
                 'label_attr' => [
@@ -48,8 +49,8 @@ class ContactType extends AbstractType
             ->add('subject', TextType::class, [
                 'attr' => [
                     'class' => 'mb-4 block p-2 w-full text-sm rounded',
-                    'minlenght' => '2',
-                    'maxlenght' => '100',
+                    'minlength' => '2',
+                    'maxlength' => '100',
                     'placeholder' => 'Pourquoi nous contactes-tu ?'
                 ],
                 'label' => 'Sujet',
@@ -71,13 +72,6 @@ class ContactType extends AbstractType
                     new Assert\NotBlank()
                 ]
             ])
-            ->add('submit', SubmitType::class, [
-                'attr' => [
-                    'class' => 'text-center mb-4 bg-[#A5A3BF] hover:bg-[#8E8CAB] rounded-lg p-2 font-bold transition-transform duration-300 ease-in-out transform hover:scale-95 relative overflow-hidden shadow-md mx-auto my-auto cursor-pointer mb-10'
-                ],
-                'label' => 'Soumettre ma demande'
-            ])
-
         ;
     }
 

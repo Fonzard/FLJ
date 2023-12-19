@@ -1,28 +1,28 @@
 <?php
 
-namespace App\Repository;
+namespace App\Repository\homepage;
 
-use App\Entity\Project;
+use App\Entity\PartnershipFormation;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<Project>
+ * @extends ServiceEntityRepository<PartnershipFormation>
  *
- * @method Project|null find($id, $lockMode = null, $lockVersion = null)
- * @method Project|null findOneBy(array $criteria, array $orderBy = null)
- * @method Project[]    findAll()
- * @method Project[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method PartnershipFormation|null find($id, $lockMode = null, $lockVersion = null)
+ * @method PartnershipFormation|null findOneBy(array $criteria, array $orderBy = null)
+ * @method PartnershipFormation[]    findAll()
+ * @method PartnershipFormation[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class ProjectRepository extends ServiceEntityRepository
+class PartnershipFormationRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Project::class);
+        parent::__construct($registry, PartnershipFormation::class);
     }
 
 //    /**
-//     * @return Project[] Returns an array of Project objects
+//     * @return PartnershipFormation[] Returns an array of PartnershipFormation objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -36,7 +36,7 @@ class ProjectRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Project
+//    public function findOneBySomeField($value): ?PartnershipFormation
 //    {
 //        return $this->createQueryBuilder('p')
 //            ->andWhere('p.exampleField = :val')

@@ -3,18 +3,26 @@
 {% block title %}Register{% endblock %}
 
 {% block body %}
-    <h1>Inscription</h1>
+  {% include 'homepage/_header.html.twig' %}
 
-    {{ form_errors(registrationForm) }}
+    <main class="m-8">
+        <div class="max-w-md mx-auto carts-bg p-8 shadow-md rounded-lg">
+            {% include '_partials/_flash.html.twig' %}
+            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center">Inscription</h2>
+            {{ form_errors(registrationForm) }}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.username) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Mot de passe'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+            {{ form_start(registrationForm) }}
+            {{ form_row(registrationForm.username) }}
+            {{ form_row(registrationForm.email) }}
+            {{ form_row(registrationForm.password) }}
+            {{ form_row(registrationForm.passwordConfirm) }}
+            <div class="text-center">
+                <button class="btn btn-lg btn-primary text-center bg-[#A5A3BF] hover:bg-[#8E8CAB] rounded-lg p-2 font-bold transition-transform duration-300 ease-in-out transform hover:scale-95 relative overflow-hidden shadow-md mx-auto my-auto cursor-pointer mb-10" type="submit">
+                    S'inscrire
+                </button>
+            </div>
+            {{ form_end(registrationForm) }}
+        </div>
+    </main>
 
-        <button type="submit" class="btn">S'inscrire</button>
-    {{ form_end(registrationForm) }}
 {% endblock %}

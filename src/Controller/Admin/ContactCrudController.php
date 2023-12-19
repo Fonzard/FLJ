@@ -32,8 +32,6 @@ class ContactCrudController extends AbstractCrudController
             DateTimeField::new('created_at')
                 ->setLabel('Envoyé le :')
                 ->onlyOnIndex(),
-
-
         ];
     }
 }

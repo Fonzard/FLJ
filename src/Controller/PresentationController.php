@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\Repository\PresentationRepository;
-use App\Repository\ProjectRepository;
+use App\Repository\presentation\PresentationRepository;
+use App\Repository\presentation\ProjectRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;

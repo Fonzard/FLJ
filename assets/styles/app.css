@@ -3,3 +3,12 @@
 @tailwind utilities;
 @import url('splide/splide.min.css');
 
+.partials-bg{
+    background-color: rgb(22 101 52);
+}
+.carts-bg {
+    background-color: #D7C8C8;
+}
+.main-bg {
+    background-color: #A5A3BF;
+}

@@ -1,8 +1,11 @@
 easy_admin:
-  design:
-    brand_color: 'blue'
-
   entities:
+
+    Presentation:
+      class: App\Entity\Presentation
+      controller: App\Controller\Admin\Presentation_page\PresentationCrudController
+      label: 'Page présentation'
+
     Formation:
       class: App\Entity\Formation
       label: 'Formation'
@@ -13,13 +16,6 @@ easy_admin:
     Homepage:
       class: App\Entity\Homepage
       label: 'Accueil'
-      list:
-        actions:
-          - { name: 'en_ligne', type: 'custom', label: 'Mettre en ligne', icon: 'check'}
-
-    Presentation:
-      class: App\Entity\Presentation
-      label: 'Informations'
       list:
         actions:
           - { name: 'en_ligne', type: 'custom', label: 'Mettre en ligne', icon: 'check'}

@@ -1,8 +1,8 @@
 <?php
 namespace App\Entity;
 
+use App\Repository\homepage\HomepageRepository;
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\HomepageRepository;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 

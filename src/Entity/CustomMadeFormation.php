@@ -2,11 +2,9 @@
 
 namespace App\Entity;
 
-use App\Entity\Homepage;
-use Doctrine\DBAL\Types\Types;
-use Doctrine\ORM\Mapping as ORM;
 use App\Entity\Trait\IdTitleContentTrait;
-use App\Repository\CustomMadeFormationRepository;
+use App\Repository\homepage\CustomMadeFormationRepository;
+use Doctrine\ORM\Mapping as ORM;
 
 
 #[ORM\Entity(repositoryClass: CustomMadeFormationRepository::class)]
