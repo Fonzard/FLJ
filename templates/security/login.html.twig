@@ -3,29 +3,35 @@
 {% block title %}Log in!{% endblock %}
 
 {% block body %}
-<form method="post">
+    {% include 'homepage/_header.html.twig' %}
+<form method="post" class="max-w-md mx-auto bg-[#D7C8C8] p-8 shadow-md rounded-lg m-8">
     {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        <div class="alert alert-danger text-red-600">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
     {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+        <div class="mb-3 text-green-800">
+            Vous êtes connecté en tant que  {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}" class="hover:text-blue-900 underline">Logout</a>
         </div>
     {% endif %}
-
-    <h1 class="h3 mb-3 font-weight-normal">Connection</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
-
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        Se connecter
-    </button>
+    <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900">Connection</h2>
+    <article class="">
+    <div>
+        <label class="block text-sm font-bold required" for="inputEmail">Email</label>
+        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control mb-4 block p-2 w-full text-sm rounded" autocomplete="email" required autofocus>
+    </div>
+        <div>
+            <label class="block text-sm font-bold required" for="inputPassword">Password</label>
+            <input type="password" name="password" id="inputPassword" class="form-control mb-4 block p-2 w-full text-sm rounded" minlenght="2" maxlenght="50" autocomplete="current-password" required>
+        </div>
+        <input type="hidden" name="_csrf_token"
+               value="{{ csrf_token('authenticate') }}"
+        >
+        <div class="text-center">
+            <button class="btn btn-lg btn-primary text-center mb-4 bg-[#A5A3BF] hover:bg-[#8E8CAB] rounded-lg p-2 font-bold transition-transform duration-300 ease-in-out transform hover:scale-95 relative overflow-hidden shadow-md mx-auto my-auto cursor-pointer mb-10" type="submit">
+                Se connecter
+            </button>
+        </div>
+    </article>
 </form>
 {% endblock %}
