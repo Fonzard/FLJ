@@ -23,17 +23,17 @@ class Presentation
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $description_title = null;
-
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
     #[ORM\Column(type: 'string', length: 255)]
     private ?string $image = null;
 
-    #[Vich\UploadableField(mapping: 'homepage', fileNameProperty: 'image')]
+    #[Vich\UploadableField(mapping: 'presentation', fileNameProperty: 'image')]
     private ?File $imageFile = null;
+
+    #[ORM\Column]
+    private ?bool $isActive = null;
 
     public function getId(): ?int
     {
@@ -48,18 +48,6 @@ class Presentation
     public function setName(string $name): static
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getDescriptionTitle(): ?string
-    {
-        return $this->description_title;
-    }
-
-    public function setDescriptionTitle(string $description_title): static
-    {
-        $this->description_title = $description_title;
 
         return $this;
     }
@@ -96,6 +84,18 @@ class Presentation
     public function getImageFile(): ?File
     {
         return $this->imageFile;
+    }
+
+    public function isIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): static
+    {
+        $this->isActive = $isActive;
+
+        return $this;
     }
 
 }
