@@ -2,8 +2,8 @@
 
 namespace App\Entity;
 
+use App\Repository\homepage\OwnerPresentationRepository;
 use Doctrine\ORM\Mapping as ORM;
-use App\Repository\OwnerPresentationRepository;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 

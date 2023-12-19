@@ -1,12 +1,11 @@
 <?php
 
 namespace App\Controller;
-use App\Repository\HomepageRepository;
-use App\Repository\OwnerPresentationRepository;
-use App\Repository\CustomMadeFormationRepository;
-use App\Repository\PartnershipFormationRepository;
+use App\Repository\homepage\CustomMadeFormationRepository;
+use App\Repository\homepage\HomepageRepository;
+use App\Repository\homepage\OwnerPresentationRepository;
+use App\Repository\homepage\PartnershipFormationRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 

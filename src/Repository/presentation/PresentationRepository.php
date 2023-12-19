@@ -1,28 +1,28 @@
 <?php
 
-namespace App\Repository;
+namespace App\Repository\presentation;
 
-use App\Entity\PartnershipFormation;
+use App\Entity\Presentation;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @extends ServiceEntityRepository<PartnershipFormation>
+ * @extends ServiceEntityRepository<Presentation>
  *
- * @method PartnershipFormation|null find($id, $lockMode = null, $lockVersion = null)
- * @method PartnershipFormation|null findOneBy(array $criteria, array $orderBy = null)
- * @method PartnershipFormation[]    findAll()
- * @method PartnershipFormation[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method Presentation|null find($id, $lockMode = null, $lockVersion = null)
+ * @method Presentation|null findOneBy(array $criteria, array $orderBy = null)
+ * @method Presentation[]    findAll()
+ * @method Presentation[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class PartnershipFormationRepository extends ServiceEntityRepository
+class PresentationRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, PartnershipFormation::class);
+        parent::__construct($registry, Presentation::class);
     }
 
 //    /**
-//     * @return PartnershipFormation[] Returns an array of PartnershipFormation objects
+//     * @return Presentation[] Returns an array of Presentation objects
 //     */
 //    public function findByExampleField($value): array
 //    {
@@ -36,7 +36,7 @@ class PartnershipFormationRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?PartnershipFormation
+//    public function findOneBySomeField($value): ?Presentation
 //    {
 //        return $this->createQueryBuilder('p')
 //            ->andWhere('p.exampleField = :val')
