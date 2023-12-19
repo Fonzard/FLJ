@@ -7,7 +7,7 @@ parameters:
     app.path.project_images: /uploads/image/project
     app.path.homepage_images: /uploads/image/homepage
     app.path.partner_images: /uploads/image/partner
-    app.path.presentation_images: /uploads/presentation/partner
+    app.path.presentation_images: /uploads/image/presentation
 services:
     # default configuration for services in *this* file
     _defaults:

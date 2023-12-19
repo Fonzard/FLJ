@@ -1,9 +1,9 @@
 <section class="bg-[#A5A3BF] flex flex-wrap justify-content-between align-items-center border-b-2 border-solid border-white md:pt-8">
     {% if ownerPresentation %}
     <h2 class="ml-8 mt-8 font-extrabold text-2xl">{{ ownerPresentation.role }}</h2>
-    <div class="flex mx-16 mt-10 flex-col md:flex-row pb-10">
-    {{ ownerPresentation.shortPresentation | raw}}
-    <img src="{{ asset('uploads/image/homepage/' ~ ownerPresentation.image) }}" class="mr-3 max-w-md md:mr-6 max-md:mt-8" alt="Owner Presentation Image">
+    <div class="flex mx-16 mt-10 flex-col lg:flex-row pb-10">
+    {{ ownerPresentation.shortPresentation | raw }}
+    <img src="{{ asset('uploads/image/homepage/' ~ ownerPresentation.image) }}" class="lg:ml-3 md:w-[45vh] max-lg:mt-8 mx-auto" alt="Owner Presentation Image">
     </div>
     {% else %}
         <p>Aucune présentation disponible.</p>

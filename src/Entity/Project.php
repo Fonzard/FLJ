@@ -28,8 +28,11 @@ class Project
     #[ORM\Column(type: 'string', length: 255)]
     private ?string $image = null;
 
-    #[Vich\UploadableField(mapping: 'project', fileNameProperty: 'image')]
+    #[Vich\UploadableField(mapping: 'presentation', fileNameProperty: 'image')]
     private ?File $imageFile = null;
+
+    #[ORM\Column]
+    private ?bool $isActive = null;
 
     public function getImage(): ?string
     {
@@ -78,6 +81,18 @@ class Project
     public function setContent(string $content): static
     {
         $this->content = $content;
+
+        return $this;
+    }
+
+    public function isIsActive(): ?bool
+    {
+        return $this->isActive;
+    }
+
+    public function setIsActive(bool $isActive): static
+    {
+        $this->isActive = $isActive;
 
         return $this;
     }

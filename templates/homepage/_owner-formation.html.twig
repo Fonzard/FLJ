@@ -4,7 +4,7 @@
         {% for formation in partnershipFormation %}
             <article class="bg-[#D7C8C8] rounded-lg p-4 my-8 md:mx-6 shadow-lg hover:shadow-xl transform transition-transform hover:scale-105">
                 <h3 class="font-bold">{{ formation.title }}</h3>
-                <p class="m-4 text-justify">{{ formation.content | raw}}</p>
+                <p class="m-4 text-justify">{{ formation.content | raw }}</p>
             </article>
         {% endfor %}
     </div>

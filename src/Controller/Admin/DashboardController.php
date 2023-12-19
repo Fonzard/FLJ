@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Controller\Admin;
+use App\Entity\Project;
 use App\Entity\User;
 use App\Entity\Contact;
 use App\Entity\Homepage;
@@ -55,9 +56,11 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Gérer les formations sur mesure', 'fas fa-eye', CustomMadeFormation::class)->setAction(Crud::PAGE_INDEX),
 
         ]);
-        yield MenuItem::linkToCrud('Formation', 'fas fa-school', Formation::class);
+        yield MenuItem::subMenu('Présentation', 'fas fa-bars')->setSubItems([
+            MenuItem::linkToCrud('Gérer le texte de présentation', 'fas fa-eye', Presentation::class)->setAction(Crud::PAGE_INDEX),
+            MenuItem::linkToCrud('Gérer les projets', 'fas fa-eye', Project::class)->setAction(Crud::PAGE_INDEX),
+        ]);
         yield MenuItem::linkToCrud('Contact', 'fas fa-message', Contact::class);
-        yield MenuItem::linkToCrud('Presentation', 'fas fa-circle-info', Presentation::class);
         yield MenuItem::linkToCrud('User', 'fas fa-user', User::class);
     }
 }
