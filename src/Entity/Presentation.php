@@ -35,14 +35,6 @@ class Presentation
     #[Vich\UploadableField(mapping: 'homepage', fileNameProperty: 'image')]
     private ?File $imageFile = null;
 
-    #[ORM\ManyToMany(targetEntity: Project::class, inversedBy: 'presentations')]
-    private Collection $project;
-
-    public function __construct()
-    {
-        $this->project = new ArrayCollection();
-    }
-
     public function getId(): ?int
     {
         return $this->id;
@@ -106,27 +98,4 @@ class Presentation
         return $this->imageFile;
     }
 
-    /**
-     * @return Collection<int, Project>
-     */
-    public function getProject(): Collection
-    {
-        return $this->project;
-    }
-
-    public function addProject(Project $project): static
-    {
-        if (!$this->project->contains($project)) {
-            $this->project->add($project);
-        }
-
-        return $this;
-    }
-
-    public function removeProject(project $project): static
-    {
-        $this->project->removeElement($project);
-
-        return $this;
-    }
 }
