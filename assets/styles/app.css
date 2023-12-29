@@ -5,11 +5,71 @@
 @tailwind utilities;
 
 .partials-bg{
-    background-color: rgb(22 101 52);
+   /* background-color: rgb(22 101 52); */
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0,0,0, 0.6));
+
 }
-.carts-bg {
-    background-color: #D7C8C8;
+#presentation-img{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: -280px;
+    border-radius: 15px;
+    width: 250px;
+    height: 250px;
+}
+/* Scroll Header */
+#main-header {
+    background: transparent;
+    color: #fff;
+    text-align: center;
+    position: static;
+    width: 100%;
+    top: 0;
+    z-index:10;
+    transition: background 0.5s;
+}
+
+#main-header.scroll {
+    position: fixed;
+    background: rgba(46, 49, 104, 0.8);
+}
+
+.carts-margin-x{
+    margin-top:100px;
+    margin-bottom:100px;
+}
+.carts-margin-top{
+    margin-top:100px;
+}
+.carts-color-white {
+    /*  background-color:#D7C8C8; */
+    color:#fff;
+}
+.carts-color-blue {
+    /*  background-color:#D7C8C8; */
+    color:#3D5383;
+}
+.btn-principal{
+    background: #3D5383;
+    color:#fff;
 }
 .main-bg {
-    background-color: #A5A3BF;
+    /*background-color:#A5A3BF;*/
+   /* background: linear-gradient(208deg, rgba(75,108,183,1) 0%, rgba(49,74,128,1) 24%, rgba(24,40,72,1) 100%); */
+    background: linear-gradient(186deg, rgba(106,127,174,1) 0%, rgba(0,23,74,1) 65%);
+    /*background: linear-gradient(14deg, rgba(16,46,48,1) 40%, rgba(29,109,96,1) 100%);*/
+    /*background: linear-gradient(200deg, #3e01c4, #2e048d, #1d0459, #0c032b);  */
+}
+body {
+ font-family: 'Jost', sans-serif;
+ font-weight: normal;
+}
+h1, h2, h3, h4 {
+ font-family: 'Montserrat', sans-serif;
+}
+h3{
+ font-size: 1.2rem;
+ line-height: 1.5rem;
+ font-weight: 600;
 }
