@@ -15,13 +15,13 @@
 </script>
 
 <section
-	id="presentation-slider" class=" one-time main-bg flex justify-center items-center p-6 justify-content-between align-items-center border-b-2 border-solid border-white">
+	id="presentation-slider" class=" one-time flex justify-center items-center p-6 justify-content-between align-items-center lg:ml-40 lg:mr-40">
 	<section class="splide w-full" aria-label="A slider that highlights different projects ">
 		<div class="splide__track">
 			<ul class="splide__list">
 				{% for project in projects %}
 				<li class="splide__slide m-4">
-					<article class="carts-bg rounded-lg p-4 mx-10 shadow-lg hover:shadow-xl w-11/12 max-sm:m-auto">
+					<article class="carts-border rounded-lg p-4 mx-10 shadow-lg hover:shadow-xl w-11/12 max-sm:m-auto">
 						<h2 class="font-bold mx-auto text-2xl mb-4">{{ project.title }}</h2>
 						<div class="flex max-md:flex-wrap gap-6">
 							{{ project.content | raw }}

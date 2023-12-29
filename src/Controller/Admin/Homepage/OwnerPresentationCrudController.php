@@ -28,7 +28,7 @@ class OwnerPresentationCrudController extends AbstractCrudController
                 ->setHelp('Ex: Consultante Formatrice'),
             TextEditorField::new('short_presentation')
             ->setLabel('Présentation courte')
-            ->setHelp('Présentation courte du professionel, visible en page d\'accueil'),
+            ->setHelp('Présentation courte du professionel, visible en page d\'accueil. Max 255 caractères'),
             TextField::new('imageFile')->setFormType(VichImageType::class)->onlyWhenCreating(),
             ImageField::new('image')->setBasePath('/uploads/image/homepage')->onlyOnIndex(),
             BooleanField::new('isActive')

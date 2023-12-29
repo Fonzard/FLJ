@@ -1,8 +1,7 @@
-
-<section class="main-bg flex max-lg:flex-wrap  p-6 justify-content-between align-items-center border-b-2 border-solid border-white">
+<section class="flex max-lg:flex-wrap  p-6 justify-content-between align-items-center lg:ml-40 lg:mr-40">
         {% if presentation %}
         <img src="{{ asset('uploads/image/presentation/' ~ presentation.image) }}" class="max-lg:m-auto p-6 my-8 max-w-lg" alt="Owner Presentation Image">
-        <article class="carts-bg rounded-lg p-4 mx-10 shadow-lg hover:shadow-xl">
+        <article class="carts-border rounded-lg p-4 mx-10 shadow-lg hover:shadow-xl">
                 <h2 class="font-bold mx-auto text-2xl mb-4">{{ presentation.name }}</h2>
             {{ presentation.description | raw}}
             {% else %}
