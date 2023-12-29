@@ -22,8 +22,6 @@ class CustomMadeFormationCrudController extends AbstractCrudController
         return [
             IdField::new('id')
             ->hideOnForm(),
-            TextField::new('title')
-            ->setLabel('Titre'),
             TextEditorField::new('content')
             ->setLabel('Présentation des formations partenaire'),
             BooleanField::new('isActive'),

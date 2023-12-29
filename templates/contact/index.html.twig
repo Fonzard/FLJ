@@ -6,14 +6,13 @@
 {% block body %}
   {% include 'contact/_header.html.twig' %} 
     <main class="m-8">
-        <div class="max-w-md mx-auto carts-bg p-8 shadow-md rounded-lg">
+        <div class="max-w-md mx-auto carts-bg p-8 shadow-md rounded-lg carts-border bg-[#A5A3BF] text-[#4A4A4A]">
             {% include '_partials/_flash.html.twig' %}
-            <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center">Contact</h2>
-
+            <h2 class="mb-4 text-4xl tracking-tight font-black text-center">Contact</h2>
             {{ form(form) }}
             <p class="text-sm text-green-800">Pas de besoin de s’inscrire on te recontacte directement sur ton mail</p>
             <div class="text-center">
-                <button class="btn btn-lg btn-primary text-center mb-4 bg-[#A5A3BF] hover:bg-[#8E8CAB] rounded-lg p-2 font-bold transition-transform duration-300 ease-in-out transform hover:scale-95 relative overflow-hidden shadow-md mx-auto my-auto cursor-pointer" type="submit">
+                <button class="btn btn-lg btn-primary text-black text-center mb-4  bg-[#D7C8C8] hover:bg-[#e4cece] rounded-lg p-2 font-bold transition-transform duration-300 ease-in-out transform hover:scale-95 relative overflow-hidden shadow-md mx-auto my-auto cursor-pointer" type="submit">
                     Soumettre ma demande
                 </button>
             </div>

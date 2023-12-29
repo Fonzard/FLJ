@@ -9,10 +9,9 @@
   <section class="bg-white border-b-2 border-solid border-white relative">
     <div class="container max-w-full mx-auto">
       <div class="flex justify-center items-center">
-
         {% if homepage %}
-          <img src="{{ asset('uploads/image/homepage/' ~ homepage.image) }}" alt="Banner" class="w-full h-60 object-cover" data-aos="fade-in">
-          <h2 class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-xl font-bold mt-4 line-clamp-3">{{ homepage.title }}</h2>
+          <img src="{{ asset('uploads/image/homepage/' ~ homepage.image) }}" alt="Banner" class="w-full h-96 object-cover" data-aos="fade-in">
+          <h2 class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center text-xl font-bold mt-4 line-clamp-3">{{ homepage.title }}</h2>
         {% endif %}
       </div>
     </div>
