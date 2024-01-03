@@ -18,12 +18,6 @@ use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 class ContactType extends AbstractType
 {
-    private $csrfTokenManager;
-
-    public function __construct(CsrfTokenManagerInterface $csrfTokenManager)
-    {
-        $this->csrfTokenManager = $csrfTokenManager;
-    }
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
