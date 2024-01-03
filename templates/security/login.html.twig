@@ -4,35 +4,35 @@
 
 {% block body %}
     {% include 'homepage/_header.html.twig' %}
-<form method="post" class="max-w-md mx-auto carts-bg p-8 shadow-md rounded-lg m-8">
+<form method="post" class="max-w-md mx-auto carts-bg p-8 shadow-md rounded-lg m-8 bg-white text-[#4A4A4A]">
     {% if error %}
-        <div class="alert alert-danger text-red-600">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        <div class="alert alert-danger text-red-600 font-bold">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
     {% endif %}
 
     {% if app.user %}
-        <div class="mb-3 text-green-800 text-sm">
+        <div class="mb-3 text-green-800 text-sm font-bold">
             Vous êtes connecté en tant que  {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}" class="hover:text-blue-900 underline">Logout</a>
         </div>
     {% endif %}
     <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center">Connection</h2>
     <div>
         <label class="block text-sm font-bold required" for="inputEmail">Email</label>
-        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control mb-4 block p-2 w-full text-sm rounded" autocomplete="email" required autofocus>
+        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-input form-control mb-4 block p-2 w-full text-sm rounded" autocomplete="email" required autofocus>
     </div>
         <div>
             <label class="block text-sm font-bold required" for="inputPassword">Password</label>
-            <input type="password" name="password" id="inputPassword" class="form-control mb-4 block p-2 w-full text-sm rounded" minlenght="2" maxlenght="50" autocomplete="current-password" required>
+            <input type="password" name="password" id="inputPassword" class="form-input form-control mb-4 block p-2 w-full text-sm rounded" autocomplete="current-password" required>
         </div>
         <input type="hidden" name="_csrf_token"
                value="{{ csrf_token('authenticate') }}"
         >
         <div class="text-center">
-            <button class="btn btn-lg btn-primary text-center bg-[#A5A3BF] hover:bg-[#8E8CAB] rounded-lg p-2 font-bold transition-transform duration-300 ease-in-out transform hover:scale-95 relative overflow-hidden shadow-md mx-auto my-auto cursor-pointer mb-10" type="submit">
+            <button class="btn btn-lg btn-primary text-center form-input-btn p-2 font-bold transition-transform duration-300 ease-in-out transform hover:scale-95 relative overflow-hidden shadow-md mx-auto my-auto cursor-pointer mb-10" type="submit">
                 Se connecter
             </button>
         </div>
         <div>
-            <a href="/register" class="mb-3 text-green-800 text-sm hover:text-blue-900">Pas encore inscrit ?</a>
+            <a href="/register" class="mb-3 text-green-800 font-bold text-sm hover:text-blue-900">Pas encore inscrit ?</a>
         </div>
 </form>
 {% endblock %}

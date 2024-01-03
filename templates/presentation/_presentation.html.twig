@@ -1,11 +1,17 @@
-<section class="flex max-lg:flex-wrap  p-6 justify-content-between align-items-center lg:ml-40 lg:mr-40">
+<article class="bg-gray-600 h-96">
+    <img src="" alt="">
+    <p>A réflechir mais une photo de françoise en cours ou en action ??</p>
+</article>
+<section class="flex carts-color-white p-6 justify-content-between align-items-center">
+    <div class="flex flex-wrap items-center carts-margin-x">
         {% if presentation %}
-        <img src="{{ asset('uploads/image/presentation/' ~ presentation.image) }}" class="max-lg:m-auto p-6 my-8 max-w-lg" alt="Owner Presentation Image">
-        <article class="carts-border rounded-lg p-4 mx-10 shadow-lg hover:shadow-xl">
-                <h2 class="font-bold mx-auto text-2xl mb-4">{{ presentation.name }}</h2>
+        <img src="{{ asset('uploads/image/presentation/' ~ presentation.image) }}" class="mx-auto rounded-2xl max-lg:m-auto p-6 my-8 md:max-w-lg" alt="Owner Presentation Image">
+        <article class="p-4 mx-10 lg:mx-40">
+            <h2 class="mx-auto font-black text-4xl mb-4">{{ presentation.name }}</h2>
             {{ presentation.description | raw}}
             {% else %}
-                    <p>Aucune présentation disponible.</p>
+                <p>Aucune présentation disponible.</p>
             {% endif %}
         </article>
+    </div>
 </section>

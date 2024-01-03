@@ -8,21 +8,22 @@
 						},
 					},
 					pagination: boolean = false,
+					padding: '5rem',
 				}
 		);
 		splide.mount();
 	});
 </script>
-
+<div class="bg-white">
 <section
-	id="presentation-slider" class=" one-time flex justify-center items-center p-6 justify-content-between align-items-center lg:ml-40 lg:mr-40">
+	id="presentation-slider" class="carts-color-blue one-time flex justify-center items-center p-6 justify-content-between align-items-center xl:mx-40">
 	<section class="splide w-full" aria-label="A slider that highlights different projects ">
 		<div class="splide__track">
 			<ul class="splide__list">
 				{% for project in projects %}
 				<li class="splide__slide m-4">
-					<article class="carts-border rounded-lg p-4 mx-10 shadow-lg hover:shadow-xl w-11/12 max-sm:m-auto">
-						<h2 class="font-bold mx-auto text-2xl mb-4">{{ project.title }}</h2>
+					<article class="carts-margin-x p-4 mx-10 w-11/12 max-sm:mx-auto">
+						<h2 class="mx-auto font-black text-4xl mb-4">{{ project.title }}</h2>
 						<div class="flex max-md:flex-wrap gap-6">
 							{{ project.content | raw }}
 							<img src="{{ asset('uploads/image/presentation/' ~ project.image) }}" class="mr-3 max-md:m-auto" alt="Ymage to illustrate the project">
@@ -34,4 +35,5 @@
 		</div>
 	</section>
 </section>
+</div>
 

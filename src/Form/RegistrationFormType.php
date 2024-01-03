@@ -27,7 +27,7 @@ class RegistrationFormType extends AbstractType
                 ],
                 'attr' => [
                     'placeholder' => 'Entre votre nom d\'utilisateur',
-                    'class' => 'mb-4 block p-2 w-full text-sm rounded'
+                    'class' => 'mb-4 block p-2 w-full text-sm rounded form-input'
                 ] 
             ])
             ->add('email', EmailType::class, [
@@ -37,12 +37,12 @@ class RegistrationFormType extends AbstractType
                 ],
                 'attr' => [
                     'placeholder' => 'Entrer votre email',
-                    'class' => 'mb-4 block p-2 w-full text-sm rounded'
+                    'class' => 'mb-4 block p-2 w-full text-sm rounded form-input'
                 ]
             ])
             ->add('password', PasswordType::class, [
                 'attr' => [
-                    'class' => 'mb-4 block p-2 w-full text-sm rounded',
+                    'class' => 'mb-4 block p-2 w-full text-sm rounded form-input',
                 ],
                 'label' => 'Mot de passe',
                 'label_attr' => [
@@ -61,7 +61,7 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('passwordConfirm', PasswordType::class, [
                 'attr' => [
-                    'class' => 'mb-4 block p-2 w-full text-sm rounded',
+                    'class' => 'mb-4 block p-2 w-full text-sm rounded form-input',
                 ],
                 'label' => 'Confirmer le mot de passe',
                 'label_attr' => [
