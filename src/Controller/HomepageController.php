@@ -25,4 +25,5 @@ class HomepageController extends AbstractController
             'partnershipFormation' => $partnershipFormation
         ]);
     }
+
 }

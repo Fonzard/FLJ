@@ -21,7 +21,7 @@ class ContactType extends AbstractType
         $builder
             ->add('fullName', TextType::class, [
                 'attr' => [
-                    'class' => 'mb-4 block p-2 w-full text-sm rounded',
+                    'class' => 'mb-4 block p-2 w-full text-sm rounded form-input',
                     'minlength' => '2', // Correction de la syntaxe
                     'maxlength' => '50', // Correction de la syntaxe
                 ],
@@ -32,7 +32,7 @@ class ContactType extends AbstractType
             ])
             ->add('email', EmailType::class, [
                 'attr' => [
-                    'class' => 'mb-4 block p-2 w-full text-sm rounded',
+                    'class' => 'mb-4 block p-2 w-full text-sm rounded form-input',
                     'placeholder' => 'nom@email.com'
                 ],
                 'label' => 'Adresse email',
@@ -48,7 +48,7 @@ class ContactType extends AbstractType
             ])
             ->add('subject', TextType::class, [
                 'attr' => [
-                    'class' => 'mb-4 block p-2 w-full text-sm rounded',
+                    'class' => 'mb-4 block p-2 w-full text-sm rounded form-input',
                     'minlength' => '2',
                     'maxlength' => '100',
                     'placeholder' => 'Pourquoi nous contactes-tu ?'
@@ -63,7 +63,7 @@ class ContactType extends AbstractType
             ])
 
             ->add('message', TextareaType::class, [
-                'attr' => ['rows' => 6, 'class' => 'mb-4 block p-2 w-full text-sm rounded-lg', 'placeholder' => 'Écrit nous un message...'],
+                'attr' => ['rows' => 6, 'class' => 'mb-4 block p-2 w-full text-sm rounded-lg form-input-text', 'placeholder' => 'Écrit nous un message...'],
                 'label' => 'Message',
                 'label_attr' => [
                     'class' => 'block text-sm font-bold'

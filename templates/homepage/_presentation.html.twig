@@ -2,8 +2,10 @@
     <div class="flex flex-wrap justify-center lg:mx-40 carts-margin-x">
     {% if ownerPresentation %}
         <img id="presentation-img" src="{{ asset('uploads/image/homepage/' ~ ownerPresentation.image) }}" class="lg:ml-3 max-lg:mt-8 mx-auto" alt="Owner Presentation Image">
-        <h2 class="carts-color-blue ml-8 font-black text-4xl">{{ ownerPresentation.role }}</h2>
-    <div class="carts-color-blue flex mx-16 mt-10 flex-col lg:flex-row pb-10 font-normal">
+        <div class="text-center">
+            <h2 class="carts-color-blue font-black text-4xl">{{ ownerPresentation.role }}</h2>
+        </div>
+    <div class="carts-color-blue flex md:mx-40 mx-6 p-4 mt-10 flex-col lg:flex-row pb-10 font-normal">
     {{ ownerPresentation.shortPresentation | raw }}
     </div>
     {% else %}
