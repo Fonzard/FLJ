@@ -34,7 +34,7 @@ class RegistrationController extends AbstractController
             $user->setPassword(
                 $userPasswordHasher->hashPassword(
                     $user,
-                    $form->get('plainPassword')->getData()
+                    $form->get('passwordConfirm')->getData()
                 )
             );
 
@@ -58,7 +58,7 @@ class RegistrationController extends AbstractController
             
             $this->addFlash('success', 'Votre compte à bien été créé, veuillez vérifier vos emails pour l\'activer.');
 
-            return $this->redirectToRoute('app_login');
+            return $this->redirectToRoute('app_register');
         }
 
         return $this->render('registration/register.html.twig', [

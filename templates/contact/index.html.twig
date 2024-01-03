@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}FLJ - Contact
+{% block title %} FLJ - Contact
 {% endblock %}
 
 {% block body %}
@@ -9,13 +9,21 @@
         <div class="max-w-md mx-auto carts-bg p-8 shadow-md rounded-lg carts-border bg-white text-[#4A4A4A] ">
             {% include '_partials/_flash.html.twig' %}
             <h2 class="mb-4 text-4xl tracking-tight font-black text-center">Contact</h2>
-            {{ form(form) }}
+                {{ form_errors(contact) }}
+
+                {{ form_start(contact) }}
+                {{ form_row(contact.fullName) }}
+                {{ form_row(contact.email) }}
+                {{ form_row(contact.subject) }}
+                {{ form_row(contact.message) }}
+
             <p class="text-sm">Pas de besoin de s’inscrire on te recontacte directement sur ton mail</p>
             <div class="text-center">
                 <button class="btn btn-lg btn-primary text-center mb-4 form-input-btn p-2 font-bold transition-transform duration-300 ease-in-out transform hover:scale-95 relative overflow-hidden shadow-md mx-auto my-auto cursor-pointer" type="submit">
                     Soumettre ma demande
                 </button>
             </div>
+                {{ form_end(contact) }}
         </div>
     </main>
 {% endblock %}

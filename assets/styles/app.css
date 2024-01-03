@@ -76,12 +76,12 @@ h3{
  /* FORM */
 
 .form-input {
-    background: #3D5383;
-    color:#fff;
+    background: rgb(232, 240, 254);
+    color:#000;
 }
 .form-input-text {
-    background: #3D5383;
-    color:#fff;
+    background: rgb(232, 240, 254);
+    color:#000;
     height: 350px
 }
 .form-input-btn {

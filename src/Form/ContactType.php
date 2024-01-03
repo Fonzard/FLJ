@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Contact;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,17 +14,24 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 class ContactType extends AbstractType
 {
+    private $csrfTokenManager;
+
+    public function __construct(CsrfTokenManagerInterface $csrfTokenManager)
+    {
+        $this->csrfTokenManager = $csrfTokenManager;
+    }
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
             ->add('fullName', TextType::class, [
                 'attr' => [
                     'class' => 'mb-4 block p-2 w-full text-sm rounded form-input',
-                    'minlength' => '2', // Correction de la syntaxe
-                    'maxlength' => '50', // Correction de la syntaxe
+                    'minlength' => '2',
+                    'maxlength' => '50',
                 ],
                 'label' => 'Nom / Prénom',
                 'label_attr' => [

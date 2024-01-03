@@ -37,12 +37,12 @@ class MailerService {
         string $subject,
         string $htmlTemplate,
         array $context,
-        string $to = 'admin@flj.com'
+        string $to = 'francisrouxel2@gmail.com'
     ): void {
         $email = (new TemplatedEmail())
             ->from($from)
             ->to($to)
-            ->subject($subject)
+            ->subject('[Sites - FLJ] ' . $subject)
             ->htmlTemplate($htmlTemplate)
             ->context($context);
 

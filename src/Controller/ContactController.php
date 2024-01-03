@@ -10,6 +10,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Security\Csrf\CsrfToken;
+use Symfony\Component\Security\Csrf\CsrfTokenManagerInterface;
 
 class ContactController extends AbstractController
 {
@@ -17,7 +19,8 @@ class ContactController extends AbstractController
     public function index(
         Request $request,
         EntityManagerInterface $manager,
-        MailerService $mailerService
+        MailerService $mailerService,
+        CsrfTokenManagerInterface $csrfTokenManager
     ): Response {
         $contact = new Contact();
 
@@ -35,7 +38,14 @@ class ContactController extends AbstractController
                 $contact->getEmail(),
                 $contact->getSubject(),
                 'mails/contact.html.twig',
-                ['contact' => $contact]
+                [
+                    'contact' => [
+                        'fullName' => $contact->getFullName(),
+                        'email' => $contact->getEmail(),
+                        'subject' => $contact->getSubject(),
+                        'message' => $contact->getMessage(),
+                    ]
+                ]
             );
 
             $this->addFlash(
@@ -47,12 +57,12 @@ class ContactController extends AbstractController
         } else {
             $this->addFlash(
                 'danger',
-                $form->getErrors()
+                $form->getErrors(true, false)
             );
         }
 
         return $this->render('contact/index.html.twig', [
-            'form' => $form->createView(),
+            'contact' => $form->createView(),
         ]);
     }
 }
